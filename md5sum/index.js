@@ -7,6 +7,13 @@ exports.handler = (event, handler, callback) => {
     //var input = "test"
     var input = event.queryStringParameters.input.trim();
     
+    if (!/^[a-z0-9 .-]*$/i.test(value)) {
+        console.log('Bad input for ' + input);
+        callback(null, {
+                statusCode: 400,
+                body: "Please provide only letters, numbers, periods, dashes, and spaces"
+        });
+}
 
 
 
